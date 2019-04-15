@@ -1,5 +1,9 @@
 'use strict';
 
+const Q = require('@nmq/q/client');
+
+const bot = new Q('bot');
+
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
@@ -19,6 +23,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(gistRoutes);
+
+bot.subscribe('getAll'), (payload) => {
+  console.log(payload);
+  return superagent.get('https://api.github.com/users/SlackLackey/gists')
+  .then(res => {
+    console.log(payload);
+    Q.publish('bot', 'gotAll', {res : res.body[0].url});
+    response.status(200).json(res.body);
+  })
+}
+
+
 
 app.use(notFound);
 app.use(errorHandler);
