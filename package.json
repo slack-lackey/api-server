@@ -1,0 +1,26 @@
+{
+  "name": "api-server",
+  "version": "1.0.0",
+  "description": "API Server that listens for events emmited from the bots, then calls the specified api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slack-lackey/api-server.git"
+  },
+  "author": "Chris Merritt, Billy Bunn, Vanessa Wei, Erin Trainor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slack-lackey/api-server/issues"
+  },
+  "homepage": "https://github.com/slack-lackey/api-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "superagent": "^5.0.2"
+  }
+}
