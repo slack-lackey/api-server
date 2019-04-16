@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/slack-lackey/api-server#readme",
   "dependencies": {
+    "@nmq/q": "^1.0.3",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",

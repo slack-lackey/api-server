@@ -1,5 +1,9 @@
 'use strict';
 
+const Q = require('@nmq/q/client');
+
+const bot = new Q('bot');
+
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
@@ -19,6 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(gistRoutes);
+
 
 app.use(notFound);
 app.use(errorHandler);
