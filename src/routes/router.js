@@ -14,11 +14,11 @@ router.post('/createGist', createGist);
 router.get('/test', testRoute);
 
 function createGist(request, response){
-  let content = request.body.text;
   let username = request.body.username;
   username = username.replace(/\s+/g, '-').toLowerCase()+ '-' + Date.now() + '.js';
-
-  content = content.substring(3, (content.length-3)); //to do: do index of ``` instead of 3.
+  
+  let content = request.body.text;
+  let gistContent = content.slice(content.indexOf('```')+3, content.lastIndexOf('```'))
 
   return superagent.post('https://api.github.com/gists')
       .set('Authorization', `token ${process.env.GIST_TOKEN}`)
@@ -27,7 +27,7 @@ function createGist(request, response){
         "public": true,
         "files": {
           [username] : {
-            "content": content
+            "content": gistContent
           }
         }
       })
