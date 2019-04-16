@@ -23,7 +23,7 @@ function createGist(request, response){
   return superagent.post('https://api.github.com/gists')
       .set('Authorization', `token ${process.env.GIST_TOKEN}`)
       .send({
-        "description": "Gist created by " + request.body.user + " on " + moment().format("dddd, MMMM Do YYYY, h:mm:ss a") + " in Slack.",
+        "description": "Gist created by " + request.body.username + " on " + moment().format("dddd, MMMM Do YYYY, h:mm:ss a") + " in Slack.",
         "public": true,
         "files": {
           [username] : {
