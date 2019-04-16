@@ -38,10 +38,11 @@ function createGist(request, response){
         console.log('response:', JSON.parse(res.text));
         const data = JSON.parse(res.text);
         // Send a link pointing to the new gist
-        const url = `https://gist.github.com/${data.owner.login}/${data.id}`;
+        response.body.url = `https://gist.github.com/${data.owner.login}/${data.id}`;
+        
         console.log(url);
         // return url;
-        response.status(200).send(url);
+        response.status(200).send(response.body.url);
       })
       .catch(errorHandler)
 }
