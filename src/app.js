@@ -24,11 +24,15 @@ app.use(gistRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
+/**
+ * Start the server at the specified port.
+ * @param  {} port
+ */
 module.exports = {
   server: app,
   start: (port) =>{
     app.listen(port, () => {
       console.log(`Server up on: ${port}`);
-    })
-  }
-}
+    });
+  },
+};
