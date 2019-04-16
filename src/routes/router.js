@@ -17,6 +17,8 @@ router.get('/test', testRoute);
 function createGist(request, response){
   console.log('got request');
   console.log(request.body);
+  let content = request.body.text;
+  content = content.substring(2, -1);
   return superagent.post('https://api.github.com/gists')
       .set('Authorization', `token ${process.env.GIST_TOKEN}`)
       .send({
@@ -24,7 +26,7 @@ function createGist(request, response){
         "public": true,
         "files": {
           "hello_world.rb": {
-            "content": "class HelloWorld\n   def initialize(name)\n      @name = name.capitalize\n   end\n   def sayHi\n      puts \"Hello !\"\n   end\nend\n\nhello = HelloWorld.new(\"World\")\nhello.sayHi"
+            "content": content
           }
         }
       })
