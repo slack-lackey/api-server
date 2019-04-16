@@ -1,9 +1,5 @@
 'use strict';
 
-const Q = require('@nmq/q/client');
-
-const bot = new Q('bot');
-
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
