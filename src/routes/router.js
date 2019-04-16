@@ -2,9 +2,8 @@
 const superagent = require('superagent');
 
 const express = require('express');
-
-const Q = require('@nmq/q/client');
-const errorHandler = require(`..//middleware/500.js`);
+const moment = require('moment');
+const errorHandler = require(`../middleware/500.js`);
 
 const router = express.Router();
 
@@ -15,19 +14,16 @@ router.post('/createGist', createGist);
 router.get('/test', testRoute);
 
 function createGist(request, response){
-  console.log('got request');
-  console.log(request.body);
   let content = request.body.text;
   let username = request.body.username;
-  username = username.replace(/\s+/g, '-').toLowerCase()+ '-' + Date.now() + '.js'
-  
+  username = username.replace(/\s+/g, '-').toLowerCase()+ '-' + Date.now() + '.js';
 
+  content = content.substring(3, (content.length-3)); //to do: do index of ``` instead of 3.
 
-  content = content.substring(3, (content.length-3));
   return superagent.post('https://api.github.com/gists')
       .set('Authorization', `token ${process.env.GIST_TOKEN}`)
       .send({
-        "description": request.body.user,
+        "description": "Gist created by " + request.body.user + " on " + moment().format("dddd, MMMM Do YYYY, h:mm:ss a") + " in Slack.",
         "public": true,
         "files": {
           [username] : {
