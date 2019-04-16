@@ -16,11 +16,11 @@ router.get('/test', testRoute);
 
 function createGist(request, response){
   console.log('got request');
-  console.log(request);
+  console.log(request.body);
   return superagent.post('https://api.github.com/gists')
       .set('Authorization', `token ${process.env.GIST_TOKEN}`)
       .send({
-        "description": "Hello World Examples",
+        "description": request.body.user,
         "public": true,
         "files": {
           "hello_world.rb": {
@@ -44,7 +44,7 @@ function createGist(request, response){
 
 function testRoute(request, response){
   console.log('someone hit the route');
-  console.log(request);
+  console.log(request.body);
 }
 
 function handleGetAll(request, response, next) {
