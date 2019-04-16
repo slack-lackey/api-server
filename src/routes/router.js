@@ -44,6 +44,7 @@ function createGist(request, response){
 
 function testRoute(request, response){
   console.log('someone hit the route');
+  console.log(request);
 }
 
 function handleGetAll(request, response, next) {
