@@ -18,6 +18,10 @@ function createGist(request, response){
   console.log('got request');
   console.log(request.body);
   let content = request.body.text;
+  let username = request.body.username + '.js';
+  
+
+
   content = content.substring(3, (content.length-3));
   return superagent.post('https://api.github.com/gists')
       .set('Authorization', `token ${process.env.GIST_TOKEN}`)
@@ -25,20 +29,15 @@ function createGist(request, response){
         "description": request.body.user,
         "public": true,
         "files": {
-          "hello_world.rb": {
+          [username] : {
             "content": content
           }
         }
       })
       .then(res => {
-        console.log('response:', JSON.parse(res.text));
         const data = JSON.parse(res.text);
         // Send a link pointing to the new gist
         res.body.url = `https://gist.github.com/${data.owner.login}/${data.id}`;
-        
-        console.log('*****heres the url', res.body.url);
-        // return url;
-        // return response;
         response.status(200).send(res.body.url);
       })
       .catch(errorHandler)
