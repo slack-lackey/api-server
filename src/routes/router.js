@@ -18,7 +18,7 @@ function createGist(request, response){
   console.log('got request');
   console.log(request.body);
   let content = request.body.text;
-  content = content.substring(2, -1);
+  content = content.substring(3, (content.length-3));
   return superagent.post('https://api.github.com/gists')
       .set('Authorization', `token ${process.env.GIST_TOKEN}`)
       .send({
