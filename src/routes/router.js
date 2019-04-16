@@ -18,7 +18,8 @@ function createGist(request, response){
   console.log('got request');
   console.log(request.body);
   let content = request.body.text;
-  let username = request.body.username + '.js';
+  let username = request.body.username;
+  username = username.replace(/\s+/g, '-').toLowerCase()+ '-' + Date.now() + '.js'
   
 
 
