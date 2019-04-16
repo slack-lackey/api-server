@@ -11,7 +11,6 @@ router.get('/getAll', handleGetAll);
 
 router.post('/createGist', createGist);
 
-router.get('/test', testRoute);
 
 function createGist(request, response){
   let username = request.body.username;
@@ -40,10 +39,6 @@ function createGist(request, response){
       .catch(errorHandler)
 }
 
-function testRoute(request, response){
-  console.log('someone hit the route');
-  console.log(request.body);
-}
 
 function handleGetAll(request, response, next) {
   return superagent.get('https://api.github.com/users/SlackLackey/gists')
