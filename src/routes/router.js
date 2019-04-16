@@ -5,7 +5,6 @@ const express = require('express');
 
 const Q = require('@nmq/q/client');
 const errorHandler = require(`..//middleware/500.js`);
-const auth = require('../middleware/oauth.js');
 
 const router = express.Router();
 
@@ -44,6 +43,7 @@ function createGist(request, response){
         // return url;
         response.status(200).send(url);
       })
+      .catch(errorHandler)
 }
 
 
