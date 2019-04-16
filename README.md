@@ -1,4 +1,4 @@
-![Slack Lackey](https://i.imgur.com/ISexB0U.png=10x)
+
 <img src="https://i.imgur.com/ISexB0U.png=50x" width="50">  Slack-Lackey API Server
 =================================================
 
