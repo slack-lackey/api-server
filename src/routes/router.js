@@ -11,15 +11,14 @@ router.post('/createGist', createGist);
 function createGist(request, response){
 
   console.log(request.body);
-  let filename = request.body.filename;
-
+ 
   return superagent.post('https://api.github.com/gists')
     .set('Authorization', `token ${process.env.GIST_TOKEN}`)
     .send({
       'description': request.body.description,
       'public': true,
       'files': {
-        [filename] : {
+        [request.body.title] : {
           'content': request.body.content,
         },
       },
