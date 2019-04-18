@@ -2,6 +2,10 @@
 
 module.exports = (err, req, res, next) => {
   console.log('*****Server Error.*****');
-  let error = {error: err || err};
-  res.status(500).json(error).end();
+  if(err && res){
+    res.status(500).json(err).end();
+  }
+  else{
+    return null;
+  }
 };
