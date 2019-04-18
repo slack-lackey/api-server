@@ -4,6 +4,7 @@
   "description": "API Server that listens for events emmited from the bots, then calls the specified api",
   "main": "index.js",
   "scripts": {
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json",
     "test": "jest --coverage --verbose",
     "lint": "eslint '**/*.js'",
     "start": "node index.js"
