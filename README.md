@@ -17,28 +17,62 @@
 
 
 ### Modules
-#### `modulename.js`
-##### Exported Values and Methods
-###### `foo(thing) -> string`
-<!-- If you finished everything, you should be able to copy/paste the lab requirements and put them in present tense. -->
-Usage Notes or examples
-###### `bar(array) -> array`
-Usage Notes or examples
-### Setup
-#### `.env` requirements
-* `npm i`
-* `PORT` - 3000
-* `GIST_TOKEN` - current auth token for the github api.
-#### Running the app
-* `npm start`
-* Endpoint: `/createGist`
-  * Posts a new gist to the Slack Lackey github account.
-* Endpoint: `/getAll`
-  * Returns all the gists from the Slack Lackey github account.
+```
+.
+├── README.md
+├── __test__
+│   ├── __mocks__
+│   │   └── router-mock.js
+│   └── router.test.js
+├── docs
+│   ├── app.js.html
+│   ├── config
+│   │   └── jsdoc.config.json
+│   ├── fonts
+│   │   ├── OpenSans-Bold-webfont.eot
+│   │   ├── OpenSans-Bold-webfont.svg
+│   │   ├── OpenSans-Bold-webfont.woff
+│   │   ├── OpenSans-BoldItalic-webfont.eot
+│   │   ├── OpenSans-BoldItalic-webfont.svg
+│   │   ├── OpenSans-BoldItalic-webfont.woff
+│   │   ├── OpenSans-Italic-webfont.eot
+│   │   ├── OpenSans-Italic-webfont.svg
+│   │   ├── OpenSans-Italic-webfont.woff
+│   │   ├── OpenSans-Light-webfont.eot
+│   │   ├── OpenSans-Light-webfont.svg
+│   │   ├── OpenSans-Light-webfont.woff
+│   │   ├── OpenSans-LightItalic-webfont.eot
+│   │   ├── OpenSans-LightItalic-webfont.svg
+│   │   ├── OpenSans-LightItalic-webfont.woff
+│   │   ├── OpenSans-Regular-webfont.eot
+│   │   ├── OpenSans-Regular-webfont.svg
+│   │   └── OpenSans-Regular-webfont.woff
+│   ├── global.html
+│   ├── index.html
+│   ├── routes_router.js.html
+│   ├── scripts
+│   │   ├── linenumber.js
+│   │   └── prettify
+│   │       ├── Apache-License-2.0.txt
+│   │       ├── lang-css.js
+│   │       └── prettify.js
+│   └── styles
+│       ├── jsdoc-default.css
+│       ├── prettify-jsdoc.css
+│       └── prettify-tomorrow.css
+├── index.js
+├── package-lock.json
+├── package.json
+└── src
+    ├── app.js
+    ├── middleware
+    │   ├── 404.js
+    │   └── 500.js
+    └── routes
+        └── router.js
+```
  
 #### Tests
-* How do you run tests?
   * `npm run test`
   * `npm run lint`
-* What assertions were made?
-  * Need to use mocks. Check the output of the functions not the wiring. 
+
